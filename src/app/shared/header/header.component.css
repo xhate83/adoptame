@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #026366;
+    font-family: 'Baloo Da 2', cursive;
+    font-weight: 600;
+    padding: 15px 0;
+
+
+}
+
+nav {
+    display: flex;
+    margin-right: 10%;
+}
+
+a {
+    margin: 0 10px;
+    cursor: pointer;
+    color: rgba(254, 254, 254, 0.5);
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}
+
+img {
+    width: 200px;
+    margin-left: 5%;
+}

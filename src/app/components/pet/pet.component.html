@@ -1,0 +1,122 @@
+<div class="container">
+
+<div *ngIf="appState == 'default'" class="container-form-pets"> <!--Div izquierdo para for mascota-->
+    <h3>Ingresa los datos de la nueva mascota</h3>
+      <form  [formGroup]="formGroup"  (ngSubmit)="addPet()" id="formGroup" >
+          <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" required matInput placeholder="Nombre de la mascota" >
+              </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Especie</mat-label>
+                  <mat-select formControlName="kind" required>
+                    <mat-option selected value="Perro">Perro</mat-option>
+                    <mat-option value="Gato">Gato</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field *ngIf="formGroup?.value?.kind == 'Gato'" appearance="outline">
+                  <mat-label>Raza</mat-label>
+                  <mat-select formControlName="breed" required >
+                    <mat-option disabled>--</mat-option>
+                    <mat-option *ngFor="let breed of catsbreeds" [value]="breed.name">{{breed.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field *ngIf="formGroup?.value?.kind == 'Perro'" appearance="outline">
+                  <mat-label>Raza</mat-label>
+                  <mat-select formControlName="breed" required>
+                    <mat-option disabled>--</mat-option>
+                    <mat-option *ngFor="let breed of dogsbreeds" [value]="breed.name">{{breed.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Institución</mat-label>
+                    <mat-select formControlName="institution" required>
+                        <mat-option disabled>--</mat-option>
+                        <mat-option *ngFor="let institution of institutions" [value]="institution.name">{{institution.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+             
+          </div>
+          <div>
+              <button *ngIf="!isLoading" [disabled]="!formGroup.valid" type="submit">
+                  Enviar
+              </button>
+              <mat-spinner *ngIf="isLoading"></mat-spinner>
+          </div>
+      </form>
+</div>
+<div *ngIf="appState == 'edit'" > <!--Div izquierdo para for mascota-->
+    <h3>Actualiza los datos de la mascota</h3>
+      <form  [formGroup]="formGroupEdit"  (ngSubmit)="updatePet()" >
+          <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" required matInput [(ngModel)]="oldName">
+              </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Especie</mat-label>
+                  <mat-select formControlName="kind" required [(ngModel)]="oldKind" >
+                    <mat-option value="Perro">Perro</mat-option>
+                    <mat-option value="Gato">Gato</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field *ngIf="oldKind == 'Gato'" appearance="outline">
+                  <mat-label>Raza</mat-label>
+                  <mat-select formControlName="breed" required [(ngModel)]="oldBreedCat" >
+                    <mat-option disabled>--</mat-option>
+                    <mat-option *ngFor="let breed of catsbreeds" [value]="breed.name">{{breed.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="oldKind == 'Perro'" appearance="outline">
+                  <mat-label>Raza</mat-label>
+                  <mat-select formControlName="breed" required [(ngModel)]="oldBreedDog">
+                    <mat-option disabled>--</mat-option>
+                    <mat-option *ngFor="let breed of dogsbreeds" [value]="breed.name">{{breed.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Institución</mat-label>
+                    <mat-select formControlName="institution" required  [(ngModel)]="oldInstitution">
+                        <mat-option disabled>--</mat-option>
+                        <mat-option *ngFor="let institution of institutions" [value]="institution.name">{{institution.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+               
+          </div>
+          <div>
+              <button *ngIf="!isLoading" [disabled]="!formGroupEdit.valid" type="submit">
+                  Actualizar
+              </button>
+              <mat-spinner *ngIf="isLoading"></mat-spinner>
+          </div>
+      </form>
+</div>
+
+<div class="list-container"> <!--listado de mascotas-->
+    <h3>Listado de Mascotas</h3>
+    <table mat-table class="mat-elevation-z8">
+        <tr>
+            <th mat-header-cell>Nombre</th>
+            <th>Especie</th>
+            <th>Raza</th>
+        </tr>
+        <tr *ngFor="let pet of pets; index as index">
+            <td mat-cell>{{pet.name}}</td>
+            <td>{{pet.kind}}</td>
+            <td>{{pet.breed}}</td>
+            <td><button (click)="openModalInf(pet.name, pet.kind, pet.breed, pet.institution)">Información</button></td>
+            <td><button (click)="editPet(index)">Actualizar</button></td>
+            <td><button (click)="deletePet(pet.name)">Eliminar</button></td>
+        </tr>
+</table>
+</div>
+
+</div>

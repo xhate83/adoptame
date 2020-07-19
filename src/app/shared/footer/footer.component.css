@@ -1,0 +1,12 @@
+footer {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Baloo Da 2', cursive;
+    font-weight: 600;
+    background-color: #0E9AA0;
+    color: white;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width: 100%;
+}

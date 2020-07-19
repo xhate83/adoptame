@@ -1,0 +1,79 @@
+<div class="container">
+
+<div *ngIf="appState == 'default'" class="container-form-pets"> <!--Div izquierdo para for mascota-->
+    <h3>Ingresa los datos de la nueva institucion</h3>
+      <form  [formGroup]="formGroupIns"  (ngSubmit)="addInstitution()" id="formGroupIns" >
+          <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" required matInput placeholder="Nombre de la institucion" >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Numero celular</mat-label>
+                <input formControlName="phone" required matInput placeholder="Numero celular" >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <input formControlName="email" required matInput placeholder="Correo electronico" >
+              </mat-form-field>
+             
+          </div>
+          <div>
+              <button *ngIf="!isLoading" [disabled]="!formGroupIns.valid" type="submit">
+                  Enviar
+              </button>
+              <mat-spinner *ngIf="isLoading"></mat-spinner>
+          </div>
+      </form>
+</div>
+<div *ngIf="appState == 'edit'" > <!--Div izquierdo para for mascota-->
+    <h3>Actualiza los datos de la nueva institucion</h3>
+      <form  [formGroup]="formGroupEditIns"  (ngSubmit)="updateInstitution()" >
+          <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" required matInput [(ngModel)]="oldName">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Numero celular</mat-label>
+                <input formControlName="phone" required matInput [(ngModel)]="oldPhone">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <input formControlName="email" required matInput [(ngModel)]="oldEmail">
+              </mat-form-field>
+
+                     
+          </div>
+          <div>
+              <button *ngIf="!isLoading" [disabled]="!formGroupEditIns.valid" type="submit">
+                  Actualizar
+              </button>
+              <mat-spinner *ngIf="isLoading"></mat-spinner>
+          </div>
+      </form>
+</div>
+
+<div class="list-container"> <!--listado de mascotas-->
+    <h3>Listado de Instituciones</h3>
+    <table mat-table class="mat-elevation-z8">
+        <tr>
+            <th mat-header-cell>Nombre</th>
+            <th>Celular</th>
+            <th>Correo</th>
+        </tr>
+        <tr *ngFor="let institution of institutions; index as index">
+            <td mat-cell>{{institution.name}}</td>
+            <td>{{institution.phone}}</td>
+            <td>{{institution.email}}</td>
+            <td><button (click)="editInstitution(index)">Actualizar</button></td>
+            <td><button (click)="deletePet(institution.name)">Eliminar</button></td>
+        </tr>
+</table>
+</div>
+
+</div>

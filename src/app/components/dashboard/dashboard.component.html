@@ -1,0 +1,13 @@
+<div>
+    <div>
+        <h1>Aquí puedes ingresar la información</h1>
+        <h3 *ngIf="formStatus">Si no encuentras la institucion en el listado agregala <span><button (click)="changeForm()">Aquí</button></span></h3>
+
+        <h3 *ngIf="!formStatus">Para continuar con el registro de mascotas ingresa<span><button (click)="changeForm1()">Aquí</button></span></h3>
+    </div>
+    <div class="container-forms">
+        <app-pet *ngIf="formStatus"></app-pet>
+        <app-institution *ngIf="!formStatus"></app-institution>
+    </div>
+    
+</div>

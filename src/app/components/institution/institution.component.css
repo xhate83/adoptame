@@ -1,0 +1,50 @@
+
+.container {
+    display: flex;
+    font-family: 'Baloo Da 2', cursive;
+    justify-content: space-evenly;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.container-form-pets{
+    max-width: 30%;
+}
+th {
+    border: none;
+    padding: 10px;
+    text-align: left
+}
+td {
+    padding: 5px;
+    border-top-width: 2px;
+    border-top: hotpink;
+}
+
+.list-container{
+    margin-left: 20px;
+    font-family: 'Baloo Da 2', cursive;
+    font-weight: 600;
+}
+
+button {
+    font-family: 'Baloo Da 2', cursive;
+    font-weight: 600;
+    display: block;
+    margin: auto;
+    width: 100px;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #FAD862;
+    border-radius: 5px; 
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    border: none !important;
+}
+button:hover{
+    color: white;
+    background-color: #026366;
+}
