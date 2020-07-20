@@ -4,22 +4,25 @@ export class Init {
         console.log('No Pets Found... Creating...');
         let pets = [
           {
-            name: "tobi",
+            name: "Tobi",
             kind: "Perro",
             breed: "Beagle",
-            institution: "Michis Force"
+            institution: "Michis Force",
+            dob: "2019-07-03T05:00:00.000Z"
           }, 
           {
-            name: "tony",
+            name: "Manchas",
             kind: "Perro",
             breed: "Bobtail",
-            institution: "Peludos"
+            institution: "Peludos",
+            dob: "2020-01-03T05:00:00.000Z"
           }, 
           {
-            name: "michi",
+            name: "Bigotes",
             kind: "Gato",
             breed: "Ashera",
-            institution: "Michis Force"
+            institution: "Michis Force",
+            dob: "2015-11-03T05:00:00.000Z"
           }
         ];
   

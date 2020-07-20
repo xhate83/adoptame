@@ -5,8 +5,8 @@ footer {
     font-weight: 600;
     background-color: #0E9AA0;
     color: white;
-    position:fixed;
-    left:0px;
-    bottom:0px;
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    clear: both;
 }

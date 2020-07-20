@@ -3,7 +3,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PetService } from '../../services/pet.service';
 import { InstitutionService } from '../../services/institution.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { InfoModalComponent } from '../../shared/modals/infoModal/infoModal.component'
+import { InfoModalComponent } from '../../shared/modals/infoModal/infoModal.component';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-pet',
@@ -12,6 +14,7 @@ import { InfoModalComponent } from '../../shared/modals/infoModal/infoModal.comp
 })
 export class PetComponent implements OnInit {
 
+
   pets = [];
   institutions = [];
   oldName;
@@ -19,6 +22,7 @@ export class PetComponent implements OnInit {
   oldBreed;
   oldBreedCat;
   oldBreedDog;
+  oldDob;
   idEditPet;
   oldInstitution;
   appState: string = 'default';
@@ -183,7 +187,7 @@ export class PetComponent implements OnInit {
     {name: 'Yorkshire Terrier'}
   ]
 
-  openModalInf(name, kind, breed, institution){
+  openModalInf(name, kind, breed, dob, institution){
 
     const dialogConfig = new MatDialogConfig();
 
@@ -193,6 +197,7 @@ export class PetComponent implements OnInit {
       kind,
       breed,
       institution,
+      dob,
     }
 
     this.dialog.open(InfoModalComponent, dialogConfig)
@@ -212,6 +217,7 @@ export class PetComponent implements OnInit {
         kind: new FormControl('',[Validators.required]),
         breed: new FormControl('',[Validators.required]),
         institution: new FormControl('',[Validators.required]),
+        dob: new FormControl(moment(),[Validators.required])
       }
     )
 
@@ -221,14 +227,14 @@ export class PetComponent implements OnInit {
         name: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
         kind: new FormControl('',[Validators.required]),
         breed: new FormControl('',[Validators.required]),
-        institution: new FormControl('',[Validators.required])
+        institution: new FormControl('',[Validators.required]),
+        dob: new FormControl(moment(),[Validators.required])
       }
     )
   }
   
   listPets(){
     this.pets = this.petService.getPets();
-    console.log(this.pets)
   }
 
   listInstitutions(){
@@ -240,7 +246,8 @@ export class PetComponent implements OnInit {
       name: this.formGroup.value.name,
       kind: this.formGroup.value.kind,
       breed: this.formGroup.value.breed,
-      institution: this.formGroup.value.institution
+      institution: this.formGroup.value.institution,
+      dob: this.formGroup.value.dob
     }
     this.petService.addPet(newPet);
     this.listPets()
@@ -255,7 +262,7 @@ export class PetComponent implements OnInit {
       this.isLoading = false
       this.clearForm();
 
-    }, 2000)
+    }, 1000)
   }
 
 
@@ -279,6 +286,7 @@ export class PetComponent implements OnInit {
     this.idEditPet = index
     this.oldName = this.pets[index]['name'];
     this.oldKind = this.pets[index]['kind'];
+    this.oldDob = this.pets[index]['dob'];
     if(this.oldKind == 'Gato'){
       this.oldBreedCat =this.pets[index]['breed']
     }else {
@@ -293,7 +301,9 @@ export class PetComponent implements OnInit {
     this.pets[this.idEditPet]['name'] = this.formGroupEdit.value.name;
     this.pets[this.idEditPet]['kind'] = this.formGroupEdit.value.kind;
     this.pets[this.idEditPet]['breed'] = this.formGroupEdit.value.breed;
-    this.pets[this.idEditPet]['institution'] = this.formGroupEdit.value.institution;  
+    this.pets[this.idEditPet]['dob'] = this.formGroupEdit.value.dob;  
+    this.pets[this.idEditPet]['institution'] = this.formGroupEdit.value.institution;
+      
 
     this.petService.updatePet(this.pets);
     this.loading()

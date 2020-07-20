@@ -28,7 +28,7 @@
           </div>
       </form>
 </div>
-<div *ngIf="appState == 'edit'" > <!--Div izquierdo para for mascota-->
+<div *ngIf="appState == 'edit'" class="container-form-pets"> <!--Div izquierdo para for mascota-->
     <h3>Actualiza los datos de la nueva institucion</h3>
       <form  [formGroup]="formGroupEditIns"  (ngSubmit)="updateInstitution()" >
           <div>

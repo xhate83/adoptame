@@ -9,6 +9,13 @@
                 <input formControlName="name" required matInput placeholder="Nombre de la mascota" >
               </mat-form-field>
 
+              <mat-form-field appearance="outline">
+                <mat-label>Mes y año de nacimiento</mat-label>
+                <input [matDatepicker]="dp" formControlName="dob" required matInput >
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+
                 <mat-form-field appearance="outline">
                   <mat-label>Especie</mat-label>
                   <mat-select formControlName="kind" required>
@@ -50,13 +57,20 @@
           </div>
       </form>
 </div>
-<div *ngIf="appState == 'edit'" > <!--Div izquierdo para for mascota-->
+<div *ngIf="appState == 'edit'" class="container-form-pets" > <!--Div izquierdo para for mascota-->
     <h3>Actualiza los datos de la mascota</h3>
       <form  [formGroup]="formGroupEdit"  (ngSubmit)="updatePet()" >
           <div>
               <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
                 <input formControlName="name" required matInput [(ngModel)]="oldName">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Mes y año de nacimiento</mat-label>
+                <input [matDatepicker]="dp1" formControlName="dob" required matInput [(ngModel)]="oldDob">
+                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
               </mat-form-field>
 
                 <mat-form-field appearance="outline">
@@ -112,7 +126,7 @@
             <td mat-cell>{{pet.name}}</td>
             <td>{{pet.kind}}</td>
             <td>{{pet.breed}}</td>
-            <td><button (click)="openModalInf(pet.name, pet.kind, pet.breed, pet.institution)">Información</button></td>
+            <td><button (click)="openModalInf(pet.name, pet.kind, pet.breed, pet.dob, pet.institution)">Información</button></td>
             <td><button (click)="editPet(index)">Actualizar</button></td>
             <td><button (click)="deletePet(pet.name)">Eliminar</button></td>
         </tr>

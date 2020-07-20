@@ -71,7 +71,7 @@ export class InstitutionComponent implements OnInit {
       this.isLoading = false
       this.clearForm();
 
-    }, 2000)
+    }, 1000)
   }
 
 
