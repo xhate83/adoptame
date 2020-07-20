@@ -1,33 +1,31 @@
 # Adoptame
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
 
-## Development server
+## Instrucciones
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1 Descarga el proyecto
 
-## Code scaffolding
+2 Descomprime el proyecto en el lugar que habitualmente usas para desarrollo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3 Con el CMD o la terminal que uses ubica la capreta del pryecto
 
-## Build
+4 Debes tener actualizada la version de NodeJS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+5 Ejecuta el comando `npm install`
 
-## Running unit tests
+6 Ejecuta el comando `npm start`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+7 En el navegador ya puedes ver el proyecto en ejecion en la ruta `http://localhost:4200/`
 
-## Running end-to-end tests
+## Construcción
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Ejecuta `ng build` para compilar el proyecto. La compilación se almacenarán en el directorio `dist /`. Usa el indicador `--prod` para una compilación de producción.
 
-## Further help
+## Comentario
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## CREDITS
-
-JP y DS
+Proyecto realizado con propositos de aprendizaje sin ningun animo de lucro,
+Desarrollador: Jeyson Ospina
+Celular: 3203898548
 
 

@@ -8,7 +8,7 @@ export class PetService extends Init {
 
   constructor() { 
     super();
-    console.log('PetService Works');
+    console.log('PetService Funcionando');
     this.load();
   }
 

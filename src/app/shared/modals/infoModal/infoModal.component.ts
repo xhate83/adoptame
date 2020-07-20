@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
 import { InstitutionService } from '../../../services/institution.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
   selector: 'app-infoModal',
@@ -37,7 +37,7 @@ export class InfoModalComponent implements OnInit {
     this.dob = this.monthName + " de " + this.formatDate.getFullYear() ;
     this.institution = data.institution;
     
-    
+
     this.moreInfoInstitution = this.institutionService.getInstitutions().filter(res => res.name == this.institution)
 
     if(this.moreInfoInstitution.length > 0){

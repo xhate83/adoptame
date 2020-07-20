@@ -6,8 +6,24 @@
 
 }
 
+
+.upload {
+    background-color: #FAD862;
+    color: black;
+}
+
+.upload:hover{
+    color: white;
+    background-color: #026366;
+}
+
 mat-form-field {
     width: 100%;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.mat-select, .mat-option, .mat-button, .mat-calendar {
+    font-family: 'Baloo Da 2', cursive !important;
 }
 
 .container-form-pets{
@@ -21,7 +37,7 @@ th {
 td {
     padding: 5px;
     border-top-width: 2px;
-    border-top: hotpink;
+
 }
 
 .list-container{

@@ -1,7 +1,7 @@
 <div class="container">
 
-<div *ngIf="appState == 'default'" class="container-form-pets"> <!--Div izquierdo para for mascota-->
-    <h3>Ingresa los datos de la nueva institucion</h3>
+<div *ngIf="appState == 'default'" class="container-form-pets"> 
+    <h3>Ingresa los datos de la nueva institución</h3>
       <form  [formGroup]="formGroupIns"  (ngSubmit)="addInstitution()" id="formGroupIns" >
           <div>
               <mat-form-field appearance="outline">
@@ -28,8 +28,8 @@
           </div>
       </form>
 </div>
-<div *ngIf="appState == 'edit'" class="container-form-pets"> <!--Div izquierdo para for mascota-->
-    <h3>Actualiza los datos de la nueva institucion</h3>
+<div *ngIf="appState == 'edit'" class="container-form-pets"> 
+    <h3>Actualiza los datos de la institución</h3>
       <form  [formGroup]="formGroupEditIns"  (ngSubmit)="updateInstitution()" >
           <div>
               <mat-form-field appearance="outline">

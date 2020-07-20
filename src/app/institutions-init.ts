@@ -1,7 +1,6 @@
 export class InitInstitutions {
     load() {
       if(localStorage.getItem('institutions') === null || localStorage.getItem('institutions') == undefined) {
-        console.log('No institutions Found... Creating...');
         let institutions = [
           {
             name: "Michis Force",
@@ -23,7 +22,6 @@ export class InitInstitutions {
         localStorage.setItem('institutions', JSON.stringify(institutions));
         return 
       } else {
-        console.log('Found institutions...');
       }
     }
   }

@@ -7,6 +7,7 @@ import { InfoModalComponent } from '../../shared/modals/infoModal/infoModal.comp
 import * as moment from 'moment';
 
 
+
 @Component({
   selector: 'app-pet',
   templateUrl: './pet.component.html',
@@ -14,6 +15,7 @@ import * as moment from 'moment';
 })
 export class PetComponent implements OnInit {
 
+  readonly maxSize = 1048576;
 
   pets = [];
   institutions = [];
@@ -217,8 +219,9 @@ export class PetComponent implements OnInit {
         kind: new FormControl('',[Validators.required]),
         breed: new FormControl('',[Validators.required]),
         institution: new FormControl('',[Validators.required]),
-        dob: new FormControl(moment(),[Validators.required])
+        dob: new FormControl(moment(),[Validators.required]),
       }
+    
     )
 
     this.formGroupEdit = new FormGroup(
@@ -242,6 +245,7 @@ export class PetComponent implements OnInit {
   }
 
   addPet() {
+
     let newPet = {
       name: this.formGroup.value.name,
       kind: this.formGroup.value.kind,

@@ -1,7 +1,6 @@
 export class Init {
     load() {
       if(localStorage.getItem('pets') === null || localStorage.getItem('pets') == undefined) {
-        console.log('No Pets Found... Creating...');
         let pets = [
           {
             name: "Tobi",
@@ -29,7 +28,6 @@ export class Init {
         localStorage.setItem('pets', JSON.stringify(pets));
         return 
       } else {
-        console.log('Found pets...');
       }
     }
   }

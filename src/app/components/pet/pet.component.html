@@ -1,8 +1,8 @@
 <div class="container">
 
-<div *ngIf="appState == 'default'" class="container-form-pets"> <!--Div izquierdo para for mascota-->
+<div *ngIf="appState == 'default'" class="container-form-pets"> 
     <h3>Ingresa los datos de la nueva mascota</h3>
-      <form  [formGroup]="formGroup"  (ngSubmit)="addPet()" id="formGroup" >
+      <form  [formGroup]="formGroup"  (ngSubmit)="addPet()" id="formGroup">
           <div>
               <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
@@ -57,7 +57,7 @@
           </div>
       </form>
 </div>
-<div *ngIf="appState == 'edit'" class="container-form-pets" > <!--Div izquierdo para for mascota-->
+<div *ngIf="appState == 'edit'" class="container-form-pets" > 
     <h3>Actualiza los datos de la mascota</h3>
       <form  [formGroup]="formGroupEdit"  (ngSubmit)="updatePet()" >
           <div>

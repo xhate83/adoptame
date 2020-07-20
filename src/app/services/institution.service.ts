@@ -8,7 +8,7 @@ export class InstitutionService extends InitInstitutions {
 
   constructor() { 
     super();
-    console.log('Institutions Works');
+    console.log('Institutions funcionando');
     this.load();
   }
 
